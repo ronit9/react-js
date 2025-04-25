@@ -1,0 +1,44 @@
+{
+    "cities": [
+        {
+            "name": "Ahmedabad",
+            "population": 8190000
+        },
+        {
+            "name": "Surat",
+            "population": 6030000
+        },
+        {
+            "name": "Vadodara",
+            "population": 2045000
+        },
+        {
+            "name": "Rajkot",
+            "population": 1530000
+        },
+        {
+            "name": "Bhavnagar",
+            "population": 605000
+        },
+        {
+            "name": "Junagadh",
+            "population": 314000
+        },
+        {
+            "name": "Nadiad",
+            "population": 335000
+        },
+        {
+            "name": "Anand",
+            "population": 185000
+        },
+        {
+            "name": "Gandhinagar",
+            "population": 215000
+        },
+        {
+            "name": "Morbi",
+            "population": 220000
+        }
+    ]
+}

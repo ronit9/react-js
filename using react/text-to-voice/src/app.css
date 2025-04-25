@@ -1,0 +1,151 @@
+/* Container */
+.app-container {
+    background-color: #121212;
+    color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  /* Title */
+  .title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+    position: relative;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  
+  .title::before {
+    content: "✨";
+    position: absolute;
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #EEA302;
+  }
+  
+  .title::after {
+    content: "✨";
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5rem;
+    color: #EEA302;
+  }
+  
+  /* Text Area */
+  .text-area {
+    border-radius: 12px;
+    border: 2px solid #444;
+    padding: 15px;
+    font-size: 1.1rem;
+    background-color: #333;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  .text-area:focus {
+    border-color: #EEA302;
+    box-shadow: 0 0 15px rgba(238, 163, 2, 0.5);
+    outline: none;
+  }
+  
+  /* Select Dropdown */
+  .voice-select {
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 1.1rem;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #444;
+    transition: all 0.3s ease;
+  }
+  
+  .voice-select:focus {
+    border-color: #EEA302;
+    box-shadow: 0 0 15px rgba(238, 163, 2, 0.5);
+    outline: none;
+  }
+  
+  /* Button Styles */
+  .btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .btn .icon {
+    margin-right: 10px;
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .btn:active {
+    transform: scale(1);
+  }
+  
+  /* Button Colors */
+  .btn-primary {
+    background-color: #3498db;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #2980b9;
+  }
+  
+  .btn-warning {
+    background-color: #f39c12;
+    border: none;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e67e22;
+  }
+  
+  .btn-success {
+    background-color: #2ecc71;
+    border: none;
+  }
+  
+  .btn-success:hover {
+    background-color: #27ae60;
+  }
+  
+  .btn-danger {
+    background-color: #e74c3c;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Additional Icon Effects */
+  .icon:hover {
+    transform: rotate(15deg);
+    transition: transform 0.3s ease;
+  }
+  
+  .button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  
