@@ -16,9 +16,9 @@ const Header = ({ chapterInfo,selectchapter  }) => {
         input,select{
           border-radius: 10px;
           padding: 10px 20px;
-          border:0px;
-          color: #7E3D0E;
-          background-color: #B59969;
+          border:1px;
+          color: #B59969;
+          background-color: #7E3D0E;
           transition: all 0.5s ease;
         }
           select option:hover{
@@ -30,11 +30,12 @@ const Header = ({ chapterInfo,selectchapter  }) => {
             color: #fff;
           }
         input::placeholder{
-          color: #7E3D0E;
+          color: #B59969;
           transition: all 0.5s ease;
         }
            input:hover::placeholder{
-            color: #fff;}
+            color: #B59969;
+            background-color: #7E3D0E;}
         `
       }
     </style>

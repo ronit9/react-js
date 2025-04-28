@@ -44,8 +44,6 @@ const App = () => {
 
   const getverses = async (s) => {
     
-    console.log(s);
-    
     const url = `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${s}/verses/`;
     const options = {
       method: "GET",
@@ -54,7 +52,6 @@ const App = () => {
         "x-rapidapi-host": "bhagavad-gita3.p.rapidapi.com",
       },
     };
-
     try {
       const response = await fetch(url, options);
       const result = await response.json();
