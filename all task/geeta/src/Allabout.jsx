@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
+import { useParams } from "react-router-dom";
 
-const Allabout = () => {
+const VerseDetail = () => {
+  const { id } = useParams();
+
   return (
-    <div>
-      <h1>hedhfklchswcfed</h1>
+    <div className="container text-center mt-5">
+      <h2>Verse ID: {id}</h2>
+      {/* You can fetch and show full verse details here using the ID */}
     </div>
-  )
-}
+  );
+};
 
-export default Allabout
+export default VerseDetail;

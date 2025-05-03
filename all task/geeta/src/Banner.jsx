@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Header from "./Header";
 
 const Banner = ({ chapterInfo, verses, selectedChapter }) => {
   // console.log(chapterInfo);
@@ -9,15 +10,14 @@ const Banner = ({ chapterInfo, verses, selectedChapter }) => {
 
   return (
     <>
-    <style>
-      {
-        `
+      <style>
+        {`
         .img2 img{
           border-radius: 10px;
         }
-        `
-      }
-    </style>
+        `}
+      </style>
+    
       <div className="container">
         <div className="row">
           <div className="col-12 img2">
@@ -41,8 +41,8 @@ const Banner = ({ chapterInfo, verses, selectedChapter }) => {
             <h3>total verse:-{verses.length}</h3>
             <hr />
 
-            {verses.map((verse,index) => (
-              <div
+            {verses.map((verse, index) => (
+              <div key={index}
                 onClick={(e, index) => {
                   if (e.id === index) {
                     setInfo(verse.id);

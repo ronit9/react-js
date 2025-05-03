@@ -1,0 +1,111 @@
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none !important;
+  color: white;
+}
+.header {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.header .menu ul li:nth-child(3),
+.header .menu ul li:nth-child(4) {
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+}
+.header .menu ul li:nth-child(3) ul,
+.header .menu ul li:nth-child(4) ul {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.504);
+  width: 150px;
+  top: 30px;
+  transform: translate(-50%, 0);
+  left: 50%;
+  z-index: 100;
+  opacity: 0;
+  border-radius: 5px;
+  padding: 20px;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.header .menu ul li:nth-child(3):hover ul,
+.header .menu ul li:nth-child(4):hover ul {
+  top: 40px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.banner {
+    padding: 70px 0px 20px 0px;
+  background-image: url("https://kit.bagigambar.net/tayla/wp-content/uploads/sites/26/2021/08/tailor-making-a-dress-H3TH284.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* height: 100vh; */
+  position: relative;
+  background-position: center;
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.633);
+  min-height: 100vh;
+}
+
+.banner .content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+
+}
+
+.banner .play-icon{
+  position: relative;
+}
+
+.banner .play-icon:after{
+    box-sizing: border-box;
+  content: "";
+  width: 50px;
+  height: 50px;
+ border: 5px solid #BA9657;
+  border-radius: 50%;   
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  animation: identifier 1s infinite ;
+  animation-timing-function: cubic-bezier(.17,.67,.83,.67);
+}
+
+@keyframes identifier {
+  0%{
+    width: 50px;
+    height: 50px;
+    
+  }
+  25%{
+    width: 70px;
+    height: 70px;
+  }
+  50%{
+    width: 60px;
+    height: 60px;
+  }
+  75%{
+    width: 40px;
+    height: 40px;
+  }
+  100%{
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+    
+}

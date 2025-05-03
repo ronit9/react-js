@@ -13,14 +13,18 @@ const App = () => {
 
   const selectchapter = useCallback(
     (s) => {
-      setSelectedChapter(s);
+      if (selectchapter.length > 0) {
+        setSelectedChapter(s);
+      }else{
+        setSelectedChapter(1)
+      }
       console.log(s);
     },
     [selectedChapter]
   );
  
   const getallchapter = async () => {
-   
+   const chapterNumber = selectedChapter||1
     // console.log(chapterNumber);
 
     const url = `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/?skip=0&limit=18`;
@@ -35,8 +39,10 @@ const App = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      // console.log(result);
+      console.log(result);
+      
       setChapterInfo(result);
+      
     } catch (error) {
       console.error(error);
     }
@@ -55,7 +61,7 @@ const App = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      // console.log(result);
+      console.log(result);
       setVerses(result);
     } catch (error) {
       console.error(error);
@@ -75,7 +81,7 @@ const App = () => {
 
   return (
     <>
-      <Header chapterInfo={chapterInfo} selectchapter={selectchapter} />
+      <Header chapterInfo={chapterInfo} selectchapter={selectchapter}  />
       <Banner verses={verses} selectedChapter={selectedChapter} chapterInfo={chapterInfo}/>
     </>
   );

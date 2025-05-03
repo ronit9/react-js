@@ -1,0 +1,120 @@
+.container {
+  /* max-width: 300px; */
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+    input[type="text"] {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    }
+
+button[type="submit"] {
+  width: 100%;
+  height: 40px;
+  /* padding: 10px; */
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.no-todos {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.todo {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.todo th {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.todo td {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+.todo td button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo td button:hover {
+  background-color: #3e8e41;
+}
+
+.todo td button:active {
+  background-color: #2f6f31;
+}
+
+.todo td .btn-danger {
+  background-color: #e74c3c;
+}
+
+.todo td .btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.todo td .btn-danger:active {
+  background-color: #a94442;
+}
+
+.todo td .btn-primary {
+  background-color: #4CAF50;
+}
+
+.todo td .btn-primary:hover {
+  background-color: #3e8e41;
+}
+
+.todo td .btn-primary:active {
+  background-color: #2f6f31;
+}

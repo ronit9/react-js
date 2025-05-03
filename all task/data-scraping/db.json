@@ -1,0 +1,84 @@
+{
+  "mainheader": [
+    {
+      "id": 1,
+      "title": "Home"
+    },
+    {
+      "id": 2,
+      "title": "About"
+    },
+    {
+      "id": 3,
+      "title": "services",
+      "services": [
+        {
+          "id": 1,
+          "title": "services"
+        },
+        {
+          "id": 2,
+          "title": "services details"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "pages",
+      "pages": [
+        {
+          "id": 1,
+          "title": "team"
+        },
+        {
+          "id": 2,
+          "title": "pricing"
+        },
+        {
+          "id": 3,
+          "title": "faq pages"
+        },
+        {
+          "id": 4,
+          "title": "blog"
+        },
+        {
+          "id": 5,
+          "title": "single post"
+        },
+        {
+          "id": 6,
+          "title": "404 pages"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "contact"
+    }
+  ],
+  "banner": [
+    {
+      "id": 1,
+      "title": "Welcome To Tayla"
+    },
+    {
+      "id": 2,
+      "title": "We speak in thread and needles"
+    },
+    {
+      "id": 3,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+    }
+  ],
+  "tailor": [
+    {
+      "id": 1,
+      "title": "We are experienced tailors and are ready to make anything for you quickly and precisely."
+    },
+    {
+      "id": 2,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam blandit erat at elit sollicitudin, sed mollis neque maximus. Fusce a justo volutpat, rutrum justo nec, imperdiet tellus. Ut lorem tortor, finibus nec neque quis, fringilla malesuada risus."
+    }
+  ]
+}
