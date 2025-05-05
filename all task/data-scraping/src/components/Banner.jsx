@@ -18,13 +18,13 @@ const Banner = ({ mainbanner }) => {
               })}
               {mainbanner.map((i, index) => {
                 return index == 1 ? (
-                  <h1 className="fw-bold my-3 " style={{ fontSize: "65px" }}>
+                  <h1 className="fw-bold my-3 " key={index} style={{ fontSize: "65px" }}>
                     {i.title}
                   </h1>
                 ) : null;
               })}
               {mainbanner.map((i, index) => {
-                return index == 2 ? <p>{i.title}</p> : null;
+                return index == 2 ? <p key={index}>{i.title}</p> : null;
               })}
             </div>
             <div className="icon  col-6 d-flex gap-4 text-white fs-3">

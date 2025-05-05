@@ -109,3 +109,95 @@ a {
   }
     
 }
+
+.tailor{
+  padding: 100px 0 500px;
+  background-color: #151718;
+  color: white;
+  position: relative;
+}
+
+.tailor .img img{
+  position: absolute;
+  width: 800px;
+
+  top: 37%;
+  left: 25%;
+}
+
+.about{
+  padding: 100px ;
+}
+
+.about .info h1{
+  color: #BA9657;
+}
+
+.services{
+  padding: 100px ;
+}
+.services h6{
+  color: #BA9657;
+}
+
+.services button{
+  color: white;
+  background-color: #BA9657;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+.services .card:hover{
+  border: 2px solid #BA9657;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.works h3{
+  color: #BA9657;
+}
+
+/* .works .card img {
+  border: none;
+  height: auto;
+  width: auto;
+} */
+.works .card .img{
+  position: relative;
+  height: auto;
+  width: auto;
+  object-fit: cover;
+  
+}
+.works .card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.614);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  color: #BA9657;
+}
+.works .card:hover .card-body{
+  opacity: 1;
+}
+
+.works button{
+  padding: 10px 20px;
+  border: 0;
+  background-color: transparent;
+  color: #BA9657;
+  transition: all 0.3s ease-in-out;
+}
+
+.works button:hover{
+  color: white;
+  background-color: #BA9657;
+}
