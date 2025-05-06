@@ -2,31 +2,22 @@ import React, { useCallback, useEffect, useState } from "react";
 import Header from "./Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Banner from "./Banner";
-import './app.css'
-
+import "./app.css";
 
 const App = () => {
-  const [selectedChapter, setSelectedChapter] = useState();
+  const [selectedChapter, setSelectedChapter] = useState(1);
   const [chapterInfo, setChapterInfo] = useState(null);
   const [verses, setVerses] = useState([]);
   const [onechapter, setOnechapter] = useState([]);
 
   const selectchapter = useCallback(
     (s) => {
-      if (selectchapter.length > 0) {
-        setSelectedChapter(s);
-      }else{
-        setSelectedChapter(1)
-      }
-      console.log(s);
+      setSelectedChapter(s);
     },
     [selectedChapter]
   );
- 
-  const getallchapter = async () => {
-   const chapterNumber = selectedChapter||1
-    // console.log(chapterNumber);
 
+  const getallchapter = async () => {
     const url = `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/?skip=0&limit=18`;
     const options = {
       method: "GET",
@@ -39,17 +30,14 @@ const App = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
-      
+
       setChapterInfo(result);
-      
     } catch (error) {
       console.error(error);
     }
   };
 
   const getverses = async (s) => {
-    
     const url = `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${s}/verses/`;
     const options = {
       method: "GET",
@@ -61,14 +49,13 @@ const App = () => {
     try {
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
+
       setVerses(result);
     } catch (error) {
       console.error(error);
     }
   };
 
- 
   useEffect(() => {
     getallchapter(selectedChapter);
   }, [selectedChapter]);
@@ -77,12 +64,16 @@ const App = () => {
     if (selectedChapter) {
       getverses(selectedChapter);
     }
-  },[selectedChapter]);
+  }, [selectedChapter]);
 
   return (
     <>
-      <Header chapterInfo={chapterInfo} selectchapter={selectchapter}  />
-      <Banner verses={verses} selectedChapter={selectedChapter} chapterInfo={chapterInfo}/>
+      <Header chapterInfo={chapterInfo} selectchapter={selectchapter} />
+      <Banner
+        verses={verses}
+        selectedChapter={selectedChapter}
+        chapterInfo={chapterInfo}
+      />
     </>
   );
 };

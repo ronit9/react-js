@@ -1,19 +1,26 @@
 import React from "react";
-
-const todo = ({ todos, settodos, settask }) => {
+import { useState } from "react";
+const Todo = ({ todos, settodos, taskid }) => {
+  const [status, setstatus] = useState("active");
   const deletetodo = (id) => {
     settodos(todos.filter((t) => t.id != id));
+    localStorage.setItem("todos", JSON.stringify(todos));
   };
 
-  const edittodo = (id) => {
-    const updatedTodos = todos.map((t) => {
-      if (t.id === id) {
-        return { ...t, task: settask }; // Update the task here
-      }
-      return t; // Return the original todo if it's not the one being edited
-    });
-    settask(updatedTodos);
+  const edittodo = (id, task) => {
+    settask(task);
+    taskid(id);
   };
+  const selectstatus = (id) => {
+    settodos(
+      todos.map((s) =>
+        s.id == id
+          ? { ...s, status: s.status == "active" ? "deactive" : "active" }
+          : s
+      )
+    );
+  };
+
   return (
     <section className="todo ">
       <table className="table table-striped table-bordered">
@@ -22,11 +29,13 @@ const todo = ({ todos, settodos, settask }) => {
             <th>id</th>
             <th>task</th>
             <th>action</th>
+            <th>status</th>
           </tr>
         </thead>
         <tbody>
           {todos.map((t) => {
-            const { task, id } = t;
+            const { task, id, status } = t;
+
             return (
               <tr key={id}>
                 <td>{id}</td>
@@ -40,10 +49,13 @@ const todo = ({ todos, settodos, settask }) => {
                   </button>
                   <button
                     className="btn btn-sm btn-primary"
-                    onClick={() => edittodo(id)}
+                    onClick={() => edittodo(id, task)}
                   >
                     edit
                   </button>
+                </td>
+                <td onClick={() => selectstatus(id)}>
+                  <span style={status==="active"?{color:"green"}:{color:"red"}}>{status}</span>
                 </td>
               </tr>
             );
@@ -54,4 +66,4 @@ const todo = ({ todos, settodos, settask }) => {
   );
 };
 
-export default todo;
+export default Todo;

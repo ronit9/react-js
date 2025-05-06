@@ -1,15 +1,13 @@
 import React from "react";
 import Banner from "./Banner";
-import { useState } from "react";``
+import { useState } from "react";
+``;
 
-const Header = ({ chapterInfo,selectchapter  }) => {
-
+const Header = ({ chapterInfo, selectchapter }) => {
   return (
     <>
-
-    <style>
-      {
-        `div{
+      <style>
+        {`div{
           color: #7E3D0E;
           // background-color: #B59969;
         }
@@ -34,24 +32,34 @@ const Header = ({ chapterInfo,selectchapter  }) => {
             background-color: #7E3D0E;
           }
         
-        `
-      }
-    </style>
+        `}
+      </style>
       <div className="container">
         <div className="row all align-items-center justify-content-between">
           <div className="col-2 img">
-            <img src="/public/img/logo.png" alt="" style={{ width: "100px", height: "100px",objectFit:"cover"}}/>
+            <img
+              src="/public/img/logo.png"
+              alt=""
+              style={{ width: "100px", height: "100px", objectFit: "cover" }}
+            />
           </div>
           <div className="col-8">
             <ul className="list-unstyled align-items-center d-flex justify-content-between m-0">
               <li>
-                <select onChange={(e) => {selectchapter(e.target.value)}}>
-                
-                  
+                <select
+                  onChange={(e) => {
+                    selectchapter(e.target.value);
+                  }}
+                >
                   <option>--Select Chapter--</option>
                   {chapterInfo &&
                     chapterInfo.map((chapter) => (
-                      <option key={chapter.id}  onClick={() => selectchapter(chapter.id)}>{chapter.id} </option>
+                      <option
+                        key={chapter.id}
+                        onClick={() => selectchapter(chapter.id)}
+                      >
+                        {chapter.id}
+                      </option>
                     ))}
                 </select>
               </li>
@@ -65,7 +73,6 @@ const Header = ({ chapterInfo,selectchapter  }) => {
           </div>
         </div>
       </div>
-    
     </>
   );
 };
