@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+img {
+  width: 100%;
+}
+body {
+  /* background-image: linear-gradient(to top, #fff9eb 0%, #fff8f2 20%, #fffafa 40%, #fffdff 60%, #ffffff 100%);  */
+  background-color: #041b13 !important;
+}
+
+body::after {
+  background-image: url("./public/img/chakra.png");
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.3;
+  animation: chkra 20s linear infinite;
+}
+
+@keyframes chkra {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.head {
+  color: #ded2a9;
+}
+.head .menu .sub-menu {
+  top: 30px;
+  left: 0;
+  visibility: hidden;
+  background-blend-mode: darken;
+  background-color: #ba9270;
+  padding: 10px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+ul li {
+  font-size: 20px;
+  cursor: pointer;
+  /* margin: 5px; */
+}
+
+.head .menu .search {
+  right: -0%;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 5px;
+  opacity: 0.7;
+}
+
+.banner img {
+  filter: brightness(0.6);
+  border-radius: 10px;
+}
+
+.banner .text h1 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+  font-weight: 900;
+  color: #fff6ee;
+  text-align: center;
+}
+
+.banner .card {
+  background: #ded2a9;
+}
+.banner .card h1{
+  color: #d84a29;
+}
+.banner .card button {
+  border: 0;
+
+  background-color: #d84a29;
+}

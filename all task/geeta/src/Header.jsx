@@ -47,6 +47,7 @@ const Header = ({ chapterInfo, selectchapter }) => {
             <ul className="list-unstyled align-items-center d-flex justify-content-between m-0">
               <li>
                 <select
+                
                   onChange={(e) => {
                     selectchapter(e.target.value);
                   }}
@@ -55,10 +56,11 @@ const Header = ({ chapterInfo, selectchapter }) => {
                   {chapterInfo &&
                     chapterInfo.map((chapter) => (
                       <option
+                      value={chapter.id}
                         key={chapter.id}
                         onClick={() => selectchapter(chapter.id)}
                       >
-                        {chapter.id}
+                        {chapter.slug}
                       </option>
                     ))}
                 </select>

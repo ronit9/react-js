@@ -8,48 +8,45 @@ const App = () => {
   const [selectedChapter, setSelectedChapter] = useState(1);
   const [chapterInfo, setChapterInfo] = useState(null);
   const [verses, setVerses] = useState([]);
-  const [onechapter, setOnechapter] = useState([]);
 
-  const selectchapter = useCallback(
-    (s) => {
-      setSelectedChapter(s);
-    },
-    [selectedChapter]
-  );
+  const selectchapter = useCallback((s) => {
+    setSelectedChapter(s);
+  }, []);
 
   const getallchapter = async () => {
-    const url = `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/?skip=0&limit=18`;
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "1c60130296msh928f7c24507d6fap1a1510jsn770055bcc7a4",
-        "x-rapidapi-host": "bhagavad-gita3.p.rapidapi.com",
-      },
-    };
-
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(
+        `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/?skip=0&limit=18`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "1c60130296msh928f7c24507d6fap1a1510jsn770055bcc7a4",
+            "x-rapidapi-host": "bhagavad-gita3.p.rapidapi.com",
+          },
+        }
+      );
       const result = await response.json();
-
       setChapterInfo(result);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching chapters:", error);
     }
   };
 
   const getverses = async (s) => {
-    const url = `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${s}/verses/`;
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "1c60130296msh928f7c24507d6fap1a1510jsn770055bcc7a4",
-        "x-rapidapi-host": "bhagavad-gita3.p.rapidapi.com",
-      },
-    };
     try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-
+      const res = await fetch(
+        `https://bhagavad-gita3.p.rapidapi.com/v2/chapters/${s}/verses/`,
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key":
+              "1c60130296msh928f7c24507d6fap1a1510jsn770055bcc7a4",
+            "x-rapidapi-host": "bhagavad-gita3.p.rapidapi.com",
+          },
+        }
+      );
+      const result = await res.json();
       setVerses(result);
     } catch (error) {
       console.error(error);
@@ -57,18 +54,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    getallchapter(selectedChapter);
-  }, [selectedChapter]);
-
-  useEffect(() => {
+    getallchapter();
     if (selectedChapter) {
       getverses(selectedChapter);
     }
   }, [selectedChapter]);
-
   return (
     <>
-      <Header chapterInfo={chapterInfo} selectchapter={selectchapter} />
+      <Header chapterInfo={chapterInfo} selectedChapter={selectchapter} />
       <Banner
         verses={verses}
         selectedChapter={selectedChapter}

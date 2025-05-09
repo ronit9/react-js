@@ -1,67 +1,80 @@
 import React from "react";
 import { useState } from "react";
-const Todo = ({ todos, settodos, taskid }) => {
-  const [status, setstatus] = useState("active");
-  const deletetodo = (id) => {
-    settodos(todos.filter((t) => t.id != id));
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
-
-  const edittodo = (id, task) => {
-    settask(task);
-    taskid(id);
-  };
-  const selectstatus = (id) => {
-    settodos(
-      todos.map((s) =>
-        s.id == id
-          ? { ...s, status: s.status == "active" ? "deactive" : "active" }
-          : s
-      )
-    );
-  };
-
+const Todo = ({
+  submit,
+  setTask,
+  task,
+  todos,
+  edit,
+  deletetask,
+  edittask,
+  editstatus,
+  setStatus,
+  status,
+}) => {
   return (
-    <section className="todo ">
-      <table className="table table-striped table-bordered">
-        <thead>
-          <tr className="text-center">
-            <th>id</th>
-            <th>task</th>
-            <th>action</th>
-            <th>status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {todos.map((t) => {
-            const { task, id, status } = t;
-
-            return (
-              <tr key={id}>
-                <td>{id}</td>
-                <td>{task}</td>
-                <td className="d-flex gap-5 justify-content-center">
-                  <button
-                    className="btn btn-sm btn-danger"
-                    onClick={() => deletetodo(id)}
-                  >
-                    delete
-                  </button>
-                  <button
-                    className="btn btn-sm btn-primary"
-                    onClick={() => edittodo(id, task)}
-                  >
-                    edit
-                  </button>
-                </td>
-                <td onClick={() => selectstatus(id)}>
-                  <span style={status==="active"?{color:"green"}:{color:"red"}}>{status}</span>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <section className="todo">
+      <div className="container">
+        <div className="row align-items-center flex-column">
+          <div className="col-6 bg-danger d-flex flex-column align-items-center">
+            <h1>Add Task</h1>
+            <form onClick={submit}>
+              <label>task:-</label>
+              <input
+                type="text"
+                placeholder="Enter your task"
+                value={task || ""}
+                onChange={(e) => {
+                  setTask(e.target.value);
+                }}
+              />
+              {edit ? (
+                <button type="submit">Update</button>
+              ) : (
+                <button type="submit">Add</button>
+              )}
+            </form>
+          </div>
+          <div className="col-6  d-flex justify-content-center">
+            <table>
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>Task</th>
+                  <th>Action</th>
+                  <th>status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {todos.map((todo) => {
+                  return (
+                    <tr key={todo.id}>
+                      <td>{todo.id}</td>
+                      <td>{todo.task}</td>
+                      <td>
+                        <button onClick={() => deletetask(todo.id)}>
+                          delete
+                        </button>
+                        <button onClick={() => edittask(todo.id)}>edit</button>
+                      </td>
+                      <td onClick={(t) => editstatus(todo.id)}>
+                        <span
+                          style={
+                            ({ cursor: "pointer" },
+                            {color: todo.status === "active" ? "green" : "red"})
+                          }
+                        >
+                          {todo.status}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
