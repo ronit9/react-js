@@ -4,74 +4,73 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [task, setTask] = useState("");
+  const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState(
-    JSON.parse(localStorage.getItem("todos")) || []
+    localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos"))
+      : []
   );
-  const [edit, setEdit] = useState();
-  const [status, setStatus] = useState("");
-  console.log(status);
+  const [edit, setEdit] = useState(null);
+  const [status, setStatus] = useState("pending");
 
-  const submit = (e) => {
+  const submited = (e) => {
     e.preventDefault();
-    const obj = {
-      id: Math.floor(Math.random() * 1000),
-      task: task.trim(),
-      status: "active",
+    const newTodo = {
+      id: Math.floor(Math.random() * 100),
+      todo: todo,
+      status: "",
     };
-    if (task.trim() === "") return;
-
-    if (todos.find((t) => t.task === task)) {
+    const dup = todos.filter((t) => t.todo === todo);
+    if (dup.length > 0) {
       alert("task already exist");
+      setTodo("");
       return;
     }
     if (edit) {
-      return setTodos(
-        todos.map((todo) =>
-          todo.id === edit.id ? { ...todo, task: task } : todo
-        )
-      );
+      setTodos(todos.map((t) => (t.id === edit.id ? { ...t, todo: todo } : t)));
+      setTodo("");
+      setEdit(null);
+      return;
     }
-    setTodos([...todos, obj]);
-    setTask("");
-    setEdit("");
+
+    setTodos([...todos, newTodo]);
+    setTodo("");
+  };
+  const deleteitem = (id) => {
+    setTodos(todos.filter((t) => t.id !== id));
+  };
+  const edititem = (task) => {
+    setEdit(task);
+    setTodo(task.todo);
   };
 
+  const editstatus = (id) => {
+    setTodos(
+      todos.map((t) =>
+        t.id === id
+          ? {
+              ...t,
+              status: t.status === "completed" ? "pending" : "completed",
+            }
+          : t
+      )
+    );
+  };
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
-  const deletetask = (id) => {
-    const del = todos.filter((todo) => todo.id !== id);
-    setTodos(del);
-    localStorage.setItem("todos", JSON.stringify(del));
-  };
-  const edittask = (id) => {
-    setEdit(todos.find((todo) => todo.id === id));
-    setTask(todos.find((todo) => todo.id === id).task);
-  };
-  const editstatus = (id) => {
-    const edit = todos.map((t) =>
-      t.id === id
-        ? { ...t, status: t.status === "active" ? "completed" : "active" }
-        : t
-    );
-
-    setTodos(edit);
-    localStorage.setItem("todos", JSON.stringify(edit));
-  };
 
   return (
     <>
       <Todo
-        submit={submit}
-        setTask={setTask}
+        submited={submited}
+        setTodo={setTodo}
+        todo={todo}
         todos={todos}
-        deletetask={deletetask}
-        task={task}
-        edittask={edittask}
-        edit={edit}
-        editstatus={editstatus}
+        deleteitem={deleteitem}
+        edititem={edititem}
         status={status}
+        editstatus={editstatus}
       />
     </>
   );

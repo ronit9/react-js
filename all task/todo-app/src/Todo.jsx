@@ -1,81 +1,76 @@
-import React from "react";
-import { useState } from "react";
 const Todo = ({
-  submit,
-  setTask,
-  task,
+  submited,
+  setTodo,
+  todo,
   todos,
-  edit,
-  deletetask,
-  edittask,
-  editstatus,
-  setStatus,
+  deleteitem,
+  edititem,
   status,
+  editstatus,
 }) => {
   return (
-    <section className="todo">
-      <div className="container">
-        <div className="row align-items-center flex-column">
-          <div className="col-6 bg-danger d-flex flex-column align-items-center">
-            <h1>Add Task</h1>
-            <form onClick={submit}>
-              <label>task:-</label>
-              <input
-                type="text"
-                placeholder="Enter your task"
-                value={task || ""}
-                onChange={(e) => {
-                  setTask(e.target.value);
-                }}
-              />
-              {edit ? (
-                <button type="submit">Update</button>
-              ) : (
-                <button type="submit">Add</button>
-              )}
-            </form>
-          </div>
-          <div className="col-6  d-flex justify-content-center">
-            <table>
-              <thead>
-                <tr>
-                  <th>id</th>
-                  <th>Task</th>
-                  <th>Action</th>
-                  <th>status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {todos.map((todo) => {
-                  return (
-                    <tr key={todo.id}>
-                      <td>{todo.id}</td>
-                      <td>{todo.task}</td>
-                      <td>
-                        <button onClick={() => deletetask(todo.id)}>
-                          delete
-                        </button>
-                        <button onClick={() => edittask(todo.id)}>edit</button>
-                      </td>
-                      <td onClick={(t) => editstatus(todo.id)}>
-                        <span
-                          style={
-                            ({ cursor: "pointer" },
-                            {color: todo.status === "active" ? "green" : "red"})
-                          }
-                        >
-                          {todo.status}
-                        </span>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
+  
+   <>
+   <style>
+   
+   </style>
+    <section className="todo d-flex flex-column align-items-center my-5">
+      <form onSubmit={submited}>
+        <label>task:-</label>
+        <input
+          type="text"
+          placeholder="enter task"
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+        />
+        <button>submit</button>
+      </form>
+      <div className="col-6">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>task</th>
+              <th>action</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {todos.map((todo) => (
+              <tr key={todo.id}>
+                <td>{todo.id}</td>
+                <td>{todo.todo}</td>
+                <td>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => deleteitem(todo.id)}
+                  >
+                    delete
+                  </button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => edititem(todo)}
+                  >
+                    edit
+                  </button>
+                </td>
+                <td onClick={() => editstatus(todo.id)}>
+                  <span
+                    style={
+                      ({ cursor: "pointer" },
+                      { color: todo.status === "completed" ? "green" : "red" })
+                    }
+                  >
+                    {todo.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </section>
+   </>
   );
 };
 
