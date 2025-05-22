@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 const Works = ({ works, catagory, clothes }) => {
-  // console.log(clothes);
+
   const [filters, setFilters] = useState([]);
 
   const filter = (title) => {

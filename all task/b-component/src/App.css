@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Raleway";
+}
+
+.nav {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+}
+.menu {
+  border-top: 1px solid white;
+}
+.menu .list {
+  color: white;
+  font-size: 14px !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+.menu .list:hover {
+  color: #f47c2d;
+}
+.menu .home,
+.menu .cloth,
+.menu .p-card {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: -50%;
+  color: #8a8a88;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  opacity: 0;
+  transform: translatey(-10px);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu .list:hover .home,
+.menu .list:hover .cloth,
+.menu .list:hover .p-card {
+  transform: translatey(-0px);
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu .list .item {
+  background-color: #17171f;
+  width: 100px;
+  padding: 10px;
+  margin: 2px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.menu .list .cloth h4 {
+  color: white;
+  transition: all 0.5s ease-in-out;
+  text-transform: uppercase;
+}
+.menu .list .cloth h4:hover {
+  color: #f47c2d;
+}
+.menu .list .cloth {
+  background-color: #17171f;
+  color: #8a8a88;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  line-height: 30px;
+}
+
+.menu .list .cloth .nav-item {
+  transform: translatex(5px);
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.menu .list .cloth .nav-item:hover {
+  color: #f47c2d;
+  transform: translatex(0px);
+}
+
+.menu .list .p-card {
+  background-color: #17171f;
+  padding: 30px;
+  text-transform: capitalize;
+  transform: translate(-400px, 10px) !important;
+}
+.menu .list:hover .p-card {
+  transform: translatey(-0px);
+  visibility: visible;
+  opacity: 1;
+}
+.menu .list .p-card .nav-item {
+  transform: translatex(5px);
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.menu .list .p-card .nav-item:hover {
+  color: #f47c2d;
+  transform: translatex(0px);
+}
+
+.menu .list .p-card .card-body {
+  background-color: #17171f;
+  color: #fff;
+}
+.menu .list .p-card .card-text span {
+  color: #8a8a88;
+}
+.menu .list .p-card .card-text:nth-child(2) {
+  color: #f47c2d;
+}
+.con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.con h1 {
+  font-size: 72px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white !important;
+}
+.con span {
+  font-size: 36px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+}
+.con button {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 15px 55px;
+  border-radius: 0px;
+  transition: all 0.5s ease-in-out;
+  box-sizing: border-box;
+}
+.con button:hover {
+  color: white;
+  background: #f47c2d;
+  border: 2px solid #f47c2d;
+  box-sizing: border-box;
+}
+
+.baner2 button {
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #0f1c3c;
+  border: 0;
+}
+.baner2 button:hover {
+  background-color: #fff;
+  border: 0;
+  color: #0f1c3c;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.f-btn button {
+  background-color: transparent;
+  color: #8a8a88;
+  border: 0;
+  transition: all 0.5s ease-in-out;
+  text-transform: capitalize;
+}
+.f-btn button:hover {
+  color: #f47c2d;
+  background-color: transparent;
+  border: 0;
+}
+.fcard img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+  position: relative;
+  z-index: 1;
+}
+.fcard::after {
+  position: absolute;
+  content: "-33%";
+  box-sizing: border-box;
+  color: white;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 10px;
+  background-color: #f48d5a;
+  top: 20px;
+  left: 0px;
+  width: 80px;
+  height: 39px;
+  z-index: 111;
+  box-shadow: 2px -2px 2px rgb(0, 0, 0);
+}
