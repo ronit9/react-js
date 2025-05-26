@@ -59,7 +59,6 @@ function App() {
     try {
       const res = await fetch("http://localhost:3000/about");
       const data = await res.json();
-
       setInfo(data);
     } catch (err) {
       console.log(err);

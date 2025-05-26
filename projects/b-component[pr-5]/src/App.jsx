@@ -4,13 +4,17 @@ import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Filter from "./components/Filter";
 import Slider from "./components/Slider";
+import Tranding from "./components/Tranding";
+import Footer from "./components/Footer";
 function App() {
   return (
     <>
       <Header />
-      <Banner />
+      <Banner /> 
       <Filter />
       <Slider />
+       <Tranding />
+      <Footer />
     </>
   );
 }

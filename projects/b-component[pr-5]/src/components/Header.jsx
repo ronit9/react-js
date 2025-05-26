@@ -17,18 +17,18 @@ const Header = () => {
     <>
       <section className="nav">
         <Container>
-          <Row className="d-flex justify-content-between p-2 align-items-center">
-            <Col className="fw-semibold">
+          <Row className="d-flex justify-content-between justify-content-center p-2 align-items-center">
+            <Col  xs={6} md={3} className="fw-semibold d-flex justify-content-center">
               <IoIosCall className="me-2" />
               (+1)866-540-3229
             </Col>
-            <Col>
+            <Col xs={6} md={3} className="d-flex justify-content-center">
               <Image
                 src="https://facon-1.myshopify.com/cdn/shop/files/logo.png?v=1734962234"
                 alt="logo"
               />
             </Col>
-            <Col xs={1} className="d-flex justify-content-between">
+            <Col xs={6} md={3} className="d-flex  justify-content-between">
               <FaSearch />
               <FaCartShopping />
               <CiSettings />
@@ -36,10 +36,10 @@ const Header = () => {
           </Row>
         </Container>
 
-        <Container className="p-0 menu">
-          <Row className="justify-content-center">
-            <Col xs={6} className="p-4 fs-5 justify-content-between d-flex">
-              <Nav.Item className="list">
+        {/* <Container    className="p-0 menu">
+          <Row  className="justify-content-center">
+            <Col xs={12} md={6} className="p-4 fs-5 justify-content-between d-flex">
+              <Nav.Item  className="list">
                 home
                 <IoIosArrowDown className="ms-2" />
                 <ListGroup className="home">
@@ -50,11 +50,11 @@ const Header = () => {
                   <Nav.Item className="item">home 5</Nav.Item>
                 </ListGroup>
               </Nav.Item>
-              <Nav.Item className="list">
+              <Nav.Item  className="list">
                 shop
                 <IoIosArrowDown className="ms-2" />
-                <Col className="d-flex cloth ">
-                  <ListGroup className="p-1 m-3">
+                <Col  className="d-flex cloth ">
+                  <ListGroup  xs={12}  className="p-1 m-3">
                     <Nav.Item>
                       <h4>clothing</h4>
                     </Nav.Item>
@@ -64,7 +64,7 @@ const Header = () => {
                     <Nav.Item>page</Nav.Item>
                     <Nav.Item>buy</Nav.Item>
                   </ListGroup>
-                  <ListGroup className="p-1 m-3">
+                  <ListGroup   xs={12} className="p-1 m-3">
                     <Nav.Item>
                       <h4>footwear</h4>
                     </Nav.Item>
@@ -74,7 +74,7 @@ const Header = () => {
                     <Nav.Item>page</Nav.Item>
                     <Nav.Item>buy</Nav.Item>
                   </ListGroup>
-                  <ListGroup className="p-1 m-3">
+                  <ListGroup   xs={12} className="p-1 m-3">
                     <Nav.Item>
                       <h4>Apparel</h4>
                     </Nav.Item>
@@ -84,7 +84,7 @@ const Header = () => {
                     <Nav.Item>page</Nav.Item>
                     <Nav.Item>buy</Nav.Item>
                   </ListGroup>
-                  <ListGroup className="p-1 m-3">
+                  <ListGroup   xs={12} className="p-1 m-3">
                     <Nav.Item>
                       <h4>Skincare</h4>
                     </Nav.Item>
@@ -96,7 +96,7 @@ const Header = () => {
                   </ListGroup>
                 </Col>
               </Nav.Item>
-              <Nav.Item className="list">
+              <Nav.Item  className="list">
                 catlog
                 <IoIosArrowDown className="ms-2" />
                 <Col className="d-flex p-card ">
@@ -162,17 +162,17 @@ const Header = () => {
                   </Card>
                 </Col>
               </Nav.Item>
-              <Nav.Item className="list">
+              <Nav.Item  className="list">
                 product
                 <IoIosArrowDown className="ms-2" />
               </Nav.Item>
-              <Nav.Item className="list">
+              <Nav.Item  className="list">
                 pages
                 <IoIosArrowDown className="ms-2" />
               </Nav.Item>
             </Col>
           </Row>
-        </Container>
+        </Container> */}
       </section>
     </>
   );

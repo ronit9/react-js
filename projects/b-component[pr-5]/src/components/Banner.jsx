@@ -14,7 +14,7 @@ const Banner = () => {
 
   return (
     <>
-      <Carousel  activeIndex={index} onSelect={handleSelect}>
+      <Carousel   activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item >
           <img
             src="https://facon-1.myshopify.com/cdn/shop/files/bg_slide_1.jpg?crop=center&format=pjpg&height=1070&v=1734962478&width=1920"
@@ -22,14 +22,14 @@ const Banner = () => {
             alt="First slide"
           />
 
-          <Col className="text-center con " xs={12}>
-            <h1>A BRAND NEW ARRIVAL</h1>
+          <Col className="text-center con " >
+            <h1 >A BRAND NEW ARRIVAL</h1>
             <span>MINIMAL & MODERN LOOK</span>
             <Button>read more</Button>
           </Col>
         </Carousel.Item>
-        <Carousel.Item >
-          {/* <ExampleCarouselImage text="Second slide" /> */}
+        <Carousel.Item md={6}>
+        
           <img
             src="https://facon-1.myshopify.com/cdn/shop/files/bg_slide_2.jpg?crop=center&format=pjpg&height=1070&v=1734962478&width=1920"
             className="d-block w-100"
@@ -42,26 +42,6 @@ const Banner = () => {
           </Col>
         </Carousel.Item>
       </Carousel>
-      {/* <section className="">
-        <div className="banner">
-          <Container>
-            <Col className="text-center con " xs={12}>
-              <h1>A BRAND NEW ARRIVAL</h1>
-              <span>MINIMAL & MODERN LOOK</span>
-              <Button>read more</Button>
-            </Col>
-          </Container>
-        </div>
-        <div className="banner">
-          <Container>
-            <Col className="text-center con " xs={12}>
-              <h1>A BRAND NEW ARRIVAL</h1>
-              <span>MINIMAL & MODERN LOOK</span>
-              <Button>read more</Button>
-            </Col>
-          </Container>
-        </div>
-      </section> */}
     </>
   );
 };

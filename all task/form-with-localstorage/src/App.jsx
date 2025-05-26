@@ -14,6 +14,7 @@ function App() {
     comments: "",
   });
   const [formerrors, setFormErrors] = useState({});
+  const [editId, setEditId] = useState();
   const [formdata, setFormData] = useState(
     localStorage.getItem("formdata")
       ? JSON.parse(localStorage.getItem("formdata"))
@@ -106,31 +107,61 @@ function App() {
   const formsubmit = (e) => {
     e.preventDefault();
     if (Validation()) {
-      alert("form submitted");
-      setFormData([...formdata, input]);
-      localStorage.setItem("formdata", JSON.stringify([...formdata, input]));
-      setInput({
-        username: "",
-        useremail: "",
-        userpassword: "",
-        gender: "",
-        language: [],
-        city: "",
-        comments: "",
-      });
+      if (editId!==null) {
+        const updatedFormData = formdata.map((val) => {
+          if (val.id === editId) {
+            return {
+              ...val,
+              username: input.username,
+              useremail: input.useremail,
+              userpassword: input.userpassword,
+              gender: input.gender,
+              language: input.language,
+              city: input.city,
+              comments: input.comments,
+            };
+          }
+          return val;
+        });
+
+        // Step 2: Save to state and localStorage
+        setFormData(updatedFormData);
+        localStorage.setItem("formdata", JSON.stringify(updatedFormData));
+        setEditId(null);
+      } else {
+        alert("form submitted");
+        let obj = {
+          ...input,
+          id: Math.floor(Math.random() * 1000),
+        };
+        const update = [...formdata, obj];
+        setFormData(update);
+        localStorage.setItem("formdata", JSON.stringify(update));
+      }
     }
+
+    setInput({
+      username: "",
+      useremail: "",
+      userpassword: "",
+      gender: "",
+      language: [],
+      city: "",
+      comments: "",
+    });
   };
-  const deletedata = (index) => {
-    let del = formdata.filter((val, i) => {
-      return i !== index;
+
+  const deletedata = (id) => {
+    let del = formdata.filter((val) => {
+      return val.id !== id;
     });
     setFormData(del);
     localStorage.setItem("formdata", JSON.stringify(del));
   };
-
-  // useEffect(() => {
-  //   localStorage.setItem("formdata", JSON.stringify(formdata));
-  // }, [formdata]);
+  const editdata = (id, val) => {
+    setEditId(id);
+    setInput(val);
+  };
 
   return (
     <>
@@ -140,7 +171,7 @@ function App() {
         input={input}
         formerrors={formerrors}
       />
-      <Data formdata={formdata} deletedata={deletedata} />
+      <Data formdata={formdata} deletedata={deletedata} editdata={editdata} />
     </>
   );
 }
