@@ -123,8 +123,6 @@ function App() {
           }
           return val;
         });
-
-        // Step 2: Save to state and localStorage
         setFormData(updatedFormData);
         localStorage.setItem("formdata", JSON.stringify(updatedFormData));
         setEditId(null);
