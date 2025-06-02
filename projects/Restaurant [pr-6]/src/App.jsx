@@ -4,7 +4,8 @@ import { useState } from "react";
 import Home from "./components/Header";
 import Banner from "./components/Banner";
 import Add from "./components/Add";
-import { BrowserRouter, Route, Routes, Link, useNavigate } from "react-router-dom";
+
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Show from "./components/Show";
 function App() {
   const [recipes, setRecipes] = useState({ taste: [] });
@@ -24,6 +25,11 @@ function App() {
       ? JSON.parse(localStorage.getItem("recipes"))
       : []
   );
+  const [desert, setDesert] = useState(
+    localStorage.getItem("dessert")
+      ? JSON.parse(localStorage.getItem("dessert"))
+      : []
+  );
   const [formerrors, setFormErrors] = useState({
     recipeName: "",
     info: "",
@@ -35,9 +41,7 @@ function App() {
   });
   const formInput = (e) => {
     const { name, value, type, checked } = e.target;
-    // if (type === "radio") {
 
-    // }
     if (type === "checkbox") {
       if (checked) {
         setRecipes({ ...recipes, taste: [...recipes.taste, value] });
@@ -66,8 +70,12 @@ function App() {
       category: "",
       taste: [],
     };
+
     if (!recipes.recipeName) {
       err.recipeName = "Name Is Required";
+      chek = false;
+    } else if (recipes.recipeName === allrecipes.recipeName) {
+      err.recipeName = "Name Already Exist";
       chek = false;
     }
     if (!recipes.info) {
@@ -103,6 +111,7 @@ function App() {
   };
   const formSubmit = (e) => {
     e.preventDefault();
+
     if (foremerr()) {
       let addRecipe = {
         id: Math.floor(Math.random() * 1000),
@@ -114,7 +123,7 @@ function App() {
 
       let veg = rec.filter((item) => item.critaria === "vegetarian");
       let nonveg = rec.filter((item) => item.critaria === "non-vegetarian");
-      let des=rec.filter((item) => item.critaria === "desert");
+      let des = rec.filter((item) => item.critaria === "desert");
       if (veg.length > 0) {
         setVegetarian(veg);
         localStorage.setItem("vegetarian", JSON.stringify(veg));
@@ -126,7 +135,7 @@ function App() {
       }
 
       if (des.length > 0) {
-        setNonveg(des);
+        setDesert(des);
         localStorage.setItem("dessert", JSON.stringify(des));
       }
 
@@ -142,15 +151,14 @@ function App() {
     }
   };
 
-  useNavigate("/banner");
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="banner" element={<Banner />} />
+
           <Route
-            path="add"
+            path="/add"
             element={
               <Add
                 formSubmit={formSubmit}
@@ -162,10 +170,19 @@ function App() {
               />
             }
           />
-          <Route path="show" element={<Show allrecipes={allrecipes} />} />
+          <Route
+            path="/show"
+            element={
+              <Show
+                allrecipes={allrecipes}
+                nonveg={nonveg}
+                vegetarian={vegetarian}
+                desert={desert}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
-      <Banner />
     </>
   );
 }
