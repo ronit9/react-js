@@ -4,10 +4,11 @@ import { useState } from "react";
 import Home from "./components/Header";
 import Banner from "./components/Banner";
 import Add from "./components/Add";
-
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Show from "./components/Show";
 function App() {
+  // const navigate = useNavigate();
   const [recipes, setRecipes] = useState({ taste: [] });
   const [vegetarian, setVegetarian] = useState(
     localStorage.getItem("vegetarian")
@@ -149,6 +150,7 @@ function App() {
         taste: [],
       });
     }
+    useNavigate("/show");
   };
 
   return (
