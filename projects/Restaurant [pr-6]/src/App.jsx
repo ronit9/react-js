@@ -4,11 +4,12 @@ import { useState } from "react";
 import Home from "./components/Header";
 import Banner from "./components/Banner";
 import Add from "./components/Add";
-import { useNavigate } from "react-router-dom";
+import Edit from "./components/Edit";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Show from "./components/Show";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 function App() {
-  // const navigate = useNavigate();
   const [recipes, setRecipes] = useState({ taste: [] });
   const [vegetarian, setVegetarian] = useState(
     localStorage.getItem("vegetarian")
@@ -31,6 +32,7 @@ function App() {
       ? JSON.parse(localStorage.getItem("dessert"))
       : []
   );
+
   const [formerrors, setFormErrors] = useState({
     recipeName: "",
     info: "",
@@ -150,9 +152,19 @@ function App() {
         taste: [],
       });
     }
-    useNavigate("/show");
+  };
+  const deleterecipes = (id) => {
+    let del = allrecipes.filter((item) => {
+      return item.id !== id;
+    });
+    setAllRecipes(del);
+    localStorage.setItem("recipes", JSON.stringify(del));
   };
 
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem("recipes"));
+    setAllRecipes(data);
+  },[]);
   return (
     <>
       <BrowserRouter>
@@ -180,6 +192,19 @@ function App() {
                 nonveg={nonveg}
                 vegetarian={vegetarian}
                 desert={desert}
+                deleterecipes={deleterecipes}
+              />
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={
+              <Edit
+                formSubmit={formSubmit}
+                formInput={formInput}
+                recipes={recipes}
+                formerrors={formerrors}
+                allrecipes={allrecipes}
               />
             }
           />
