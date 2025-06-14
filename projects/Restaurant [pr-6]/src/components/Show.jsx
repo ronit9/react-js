@@ -30,18 +30,18 @@ const Show = ({ deleterecipes }) => {
         item.taste.some((item) =>
           item.toLowerCase().includes(e.target.value.toLowerCase())
         ) ||
-        parseInt(item.rating) === parseInt(e.target.value)
+        parseInt(item.price) === parseInt(e.target.value)
       );
     });
     setGetfilter(rec);
   };
   const colorstyle = (critaria) => {
     if (critaria === "vegetarian") {
-      return { color: "green",backgroundColor:"#FAA317" };
+      return { color: "green", backgroundColor: "#FAA317" };
     } else if (critaria === "non-vegetarian") {
       return { color: "red" };
     } else {
-      return { color: "white",backgroundColor:"#AE7054" };
+      return { color: "white", backgroundColor: "#AE7054" };
     }
   };
 

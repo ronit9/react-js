@@ -10,7 +10,18 @@ import Show from "./components/Show";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 function App() {
-  const [recipes, setRecipes] = useState({ taste: [] });
+  const [recipes, setRecipes] = useState({
+    recipeName: "",
+    info: "",
+    ingredients: "",
+    price: "",
+    image: "",
+    critaria: "",
+    category: "",
+    taste: [],
+  });
+ 
+  
   const [vegetarian, setVegetarian] = useState(
     localStorage.getItem("vegetarian")
       ? JSON.parse(localStorage.getItem("vegetarian"))
@@ -27,6 +38,8 @@ function App() {
       ? JSON.parse(localStorage.getItem("recipes"))
       : []
   );
+console.log(allrecipes);
+
   const [desert, setDesert] = useState(
     localStorage.getItem("dessert")
       ? JSON.parse(localStorage.getItem("dessert"))
@@ -73,11 +86,14 @@ function App() {
       category: "",
       taste: [],
     };
-
+    let dup = allrecipes.find((item) => item.recipeName === recipes.recipeName);
+    console.log(dup);
+    
     if (!recipes.recipeName) {
       err.recipeName = "Name Is Required";
       chek = false;
-    } else if (recipes.recipeName === allrecipes.recipeName) {
+    } else 
+    if (dup) {
       err.recipeName = "Name Already Exist";
       chek = false;
     }
@@ -121,6 +137,7 @@ function App() {
         ...recipes,
       };
       let rec = [...allrecipes, addRecipe];
+      console.log(rec);
       setAllRecipes(rec);
       localStorage.setItem("recipes", JSON.stringify(rec));
 
@@ -161,10 +178,10 @@ function App() {
     localStorage.setItem("recipes", JSON.stringify(del));
   };
 
-  useEffect(() => {
-    let data = JSON.parse(localStorage.getItem("recipes"));
-    setAllRecipes(data);
-  },[]);
+  // useEffect(() => {
+  //   let data = JSON.parse(localStorage.getItem("recipes"));
+  //   setAllRecipes(data);
+  // }, [allrecipes]);
   return (
     <>
       <BrowserRouter>
