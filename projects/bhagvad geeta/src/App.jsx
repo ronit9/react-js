@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import GeetaBanner from "./pages/GeetaBanner";
 import ReadGeeta from "./pages/ReadGeeta";
 import RandomRead from "./pages/RandomRead";
+import Selectedchapter from "./pages/Selectedchapter";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route path="/" element={<Header />} />
           <Route path="/GeetaBanner" element={<GeetaBanner />} />
           <Route path="/read" element={<ReadGeeta />} />
-          <Route path="/readrandom/:id" element={<RandomRead />} />
+          <Route path="/RandomRead" element={<RandomRead />} />
+          <Route path="/chapter/:id" element={<Selectedchapter /> } />
         </Routes>
       </BrowserRouter>
     </>

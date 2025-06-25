@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Card, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { getrandomverse } from "../redux/action/geetaaction";
 
 const GeetaBanner = () => {
@@ -15,8 +15,8 @@ const GeetaBanner = () => {
   useEffect(() => {
     dispach(getrandomverse(verse));
   }, [verse]);
-  const gorandom = (id) => {
-    navigate(`/readrandom/${id}`);
+  const gorandom = () => {
+    navigate(`/RandomRead`);
   };
 
   return (
@@ -58,20 +58,19 @@ const GeetaBanner = () => {
             <Card className="randomcard p-4">
               {lang === "hindi"
                 ? randomverse?.map((val, index) => {
-                    console.log(val);
-
                     const { id, name, chapter_summary_hindi } = val;
                     return (
                       <div key={index}>
-                        <Col className="d-flex justify-content-between">
-                          <h1>आज का श्लोक </h1>
-                          <h3 className="fs-2">
+                        <Col className="d-flex justify-content-between border-bottom p-2">
+                          <span>आज का अध्याय</span>
+                          <span className="">
                             ||&nbsp;{id}&nbsp;||&nbsp; {name}✨
-                          </h3>
+                          </span>
                         </Col>
                         <p>{chapter_summary_hindi}</p>
+
                         <button onClick={() => gorandom(id)}>
-                          "अधिक जानें"
+                          "Learn More"
                         </button>
                       </div>
                     );
@@ -81,7 +80,7 @@ const GeetaBanner = () => {
                     return (
                       <div key={index}>
                         <Col className="d-flex justify-content-between border-bottom p-2">
-                          <span>Verse of the day</span>
+                          <span>Chapter of the day</span>
                           <span className="">
                             ||&nbsp;{id}&nbsp;||&nbsp; {name_translated}✨
                           </span>

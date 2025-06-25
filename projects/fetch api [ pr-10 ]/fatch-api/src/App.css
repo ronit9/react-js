@@ -1,0 +1,29 @@
+ .search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 20px;
+  border: 2px solid #EEA302;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 8px rgba(238, 163, 2, 0.6);
+}
+
+ 
+ .recipe-img {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.recipe-card:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease-in-out;
+}
+
+.ingredient-list li::marker {
+  color: #EEA302;
+}

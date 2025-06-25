@@ -1,0 +1,126 @@
+.search-section {
+  position: relative;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.search-section h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  position: relative;
+  display: inline-block;
+}
+
+.search-section h1::before {
+  content: "🛍️";
+  position: absolute;
+  left: -3rem;
+  top: 0.4rem;
+  font-size: 1.5rem;
+  animation: bounce 1.5s infinite;
+}
+
+.search-section h1::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  background-color: #ff7f50;
+  margin: 0.5rem auto 0;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.search-section h1:hover::after {
+  width: 80%;
+}
+
+
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.product-card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  background-color: #fff;
+  position: relative;
+  width: 18rem;
+  margin: 1rem;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card::before {
+  content: "Sale";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background-color: #ff7f50;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.product-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff7f50, #ffa07a);
+}
+
+.product-img {
+  height: 200px;
+  object-fit: contain;
+  border-bottom: 1px solid #eee;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #343a40;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: #6c757d;
+  min-height: 50px;
+}
+
+.product-price {
+  font-size: 1rem;
+  color: #28a745;
+  font-weight: 500;
+}
+
+.product-btn {
+  background-color: #ff7f50 !important;
+  color: #fff;
+  font-weight: 500;
+  border: none !important  ;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.product-btn:hover {
+  background-color: #e05f35;
+}

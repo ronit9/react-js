@@ -1,43 +1,33 @@
-import React, { use, useEffect } from "react";
-import Header from "./Header";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Col, Container, Row } from "react-bootstrap";
-import { getverse } from "../redux/action/geetaaction";
 import { useParams } from "react-router";
-import { Form } from "react-bootstrap";
-import { Card } from "react-bootstrap";
-const RandomRead = () => {
-  const dispach = useDispatch();
-  const randomvchapter = useSelector((state) => state.getgeeta.randomverse);
-  const allverse = useSelector((state) => state.getgeeta.allverse);
-  const lang = useSelector((state) => state.getgeeta.lang);
-  useEffect(() => {
-    if (randomvchapter) {
-      dispach(getverse(randomvchapter));
-    }
-  }, [randomvchapter]);
- 
-  useEffect(() => {
-    const dotsContainer = document.getElementById("dots-container");
-    for (let i = 0; i < 20; i++) {
-      const dot = document.createElement("div");
-      dot.classList.add("dot");
-      dot.style.left = `${Math.random() * 100}%`;
-      dot.style.top = `${Math.random() * 100}%`;
-      dot.style.animationDelay = `${Math.random() * 15}s`;
-      dot.style.width = `${3 + Math.random() * 4}px`;
-      dot.style.height = dot.style.width;
+import { onechapter, selectchapter } from "../redux/action/geetaaction";
+import Header from "./Header";
+import { Col, Container, Row } from "react-bootstrap";
 
-      dotsContainer.appendChild(dot);
-    }
-  }, []);
+const Selectedchapter = () => {
+  const { id } = useParams();
+  const dispach = useDispatch();
+  const selectverse = useSelector(
+    (state) => state.getgeeta.selected_chapter_verse
+  );
+  const singlechapter = useSelector((state) => state.getgeeta.SELECT_ONE);
+  console.log(singlechapter,selectverse);
+  
+  const lang = useSelector((state) => state.getgeeta.lang);
+
+  useEffect(() => {
+    dispach(selectchapter(id));
+    dispach(onechapter(id));
+  }, [id]);
+
   return (
     <>
-      <Header />
+       <Header />
       <section className="randomread py-5 ">
         <Container>
           {lang === "hindi"
-            ? randomvchapter?.map((val, index) => {
+            ? singlechapter.map((val) => {
                 const { id, name, chapter_summary_hindi } = val;
                 return (
                   <Row className="justify-content-center text-center text-white mb-5">
@@ -64,7 +54,7 @@ const RandomRead = () => {
                   </Row>
                 );
               })
-            : randomvchapter?.map((val, index) => {
+            : singlechapter.map((val) => {
                 const { id, name_translated, chapter_summary } = val;
                 return (
                   <Row className="justify-content-center text-center text-white mb-5">
@@ -94,11 +84,11 @@ const RandomRead = () => {
         </Container>
       </section>
 
-      <section className="list py-4 ">
+     <section className="list py-4 ">
         <Container>
           <Row className="align-items-center  ">
             {lang === "hindi"
-              ? randomvchapter?.map((val, index) => {
+              ? selectverse?.map((val, index) => {
                   const { verses_count } = val;
                   return (
                     <>
@@ -110,7 +100,7 @@ const RandomRead = () => {
                     </>
                   );
                 })
-              : randomvchapter?.map((val, index) => {
+              : selectverse?.map((val, index) => {
                   const { verses_count } = val;
                   return (
                     <>
@@ -199,4 +189,4 @@ const RandomRead = () => {
   );
 };
 
-export default RandomRead;
+export default Selectedchapter;
