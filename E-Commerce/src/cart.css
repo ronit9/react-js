@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-orange: #ff6f00;
+  --hover-orange: #00bcd4;
+  --text-dark: #f3f3f3;
+  --bg-dark: #121212;
+  --card-bg: #1f1f1f;
+  --card-hover: #292929;
+}
+
+body {
+    margin-top: 80px;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.cart-section {
+  padding: 60px 20px;
+}
+
+.cart-section h2 {
+  font-size: 42px;
+  text-align: center;
+  color: var(--primary-orange);
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.cart-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--hover-orange);
+  border-radius: 10px;
+}
+
+/* Row headers */
+.product-row-header,
+.product-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+}
+
+.product-row-header {
+  color: var(--hover-orange);
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-bottom: 1px solid #333;
+}
+
+.product-row {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+
+/* Product image and info */
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid var(--hover-orange);
+}
+
+.item-info h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Quantity button styling */
+.qty-btn {
+  background-color: var(--primary-orange);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.qty-btn:hover {
+  background-color: var(--hover-orange);
+}
+
+.qty-value {
+  font-size: 18px;
+  width: 32px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Price columns */
+.item-price,
+.item-total {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-orange);
+}
+
+/* Checkout Section */
+.text-end p {
+  color: var(--primary-orange);
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.checkout-btn {
+  background-color: var(--primary-orange);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: var(--hover-orange);
+  transform: translateY(-3px);
+}

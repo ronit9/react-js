@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Banner</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, #2c3e50, #000);
+      perspective: 1500px;
+    }
+
+    #product-banner {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #product-image, #product-details {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #product-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1200px;
+    }
+
+    #product-image img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 30px;
+      box-shadow: 0 30px 80px rgba(255, 255, 255, 0.15);
+      transition: transform 1.2s ease, opacity 0.6s ease;
+      position: relative;
+      object-fit: cover;
+    }
+
+    #product-details {
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      color: #ffffff;
+      transform: translateZ(40px);
+      z-index: 10;
+    }
+
+    #product-details h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 0 0 10px #eea302, 0 0 20px #eea302;
+    }
+
+    #product-details p {
+      font-size: 1.5rem;
+      margin: 15px 0;
+      color: #ccc;
+    }
+
+    #product-details h2 {
+      font-size: 2.5rem;
+      color: #eea302;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    .magic-out {
+      animation: exitScreen 0.5s forwards ease-in;
+    }
+
+    .magic-in {
+      animation: enterScreen 0.7s forwards ease-out;
+    }
+
+    @keyframes exitScreen {
+      0% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-120%) scale(1);
+        filter: blur(10px);
+      }
+    }
+
+    @keyframes enterScreen {
+      0% {
+        opacity: 0;
+        transform: translateX(120%) scale(1);
+        filter: blur(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: blur(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div id="product-banner">
+  <div id="product-image">
+    <img src="" alt="Product" id="product-img">
+  </div>
+  <div id="product-details">
+    <h1 id="product-title"></h1>
+    <p id="product-description"></p>
+    <h2 id="product-price"></h2>
+  </div>
+</div>
+
+<script>
+  const products = [
+    {
+      id: 1,
+      image: "https://storage.googleapis.com/a1aa/image/l4IxopNCYl6sEQNIC7eeXmHW5u3lGZ9jIV7tLo-GcgE.jpg",
+      name: "Smartphone",
+      description: "128GB",
+      price: 29999
+    },
+    {
+      id: 2,
+      image: "https://storage.googleapis.com/a1aa/image/1YKRBTAs8tlcYuRKzbvXamxZJSMsE0cKEirU-8h8_tw.jpg",
+      name: "Laptop",
+      description: "16GB RAM",
+      price: 59999
+    },
+    {
+      id: 3,
+      image: "https://storage.googleapis.com/a1aa/image/ftFkdIyLjudgKQGo4aaYq-hcjZRSmdlc2H9nxZH7f18.jpg",
+      name: "Smartwatch",
+      description: "Series 6",
+      price: 19999
+    },
+    {
+      id: 4,
+      image: "https://storage.googleapis.com/a1aa/image/obYrjE5Z8EmE2BG3czEcCOqb9f6-gOeyZnI1bLudYXw.jpg",
+      name: "Tablet",
+      description: "64GB",
+      price: 24999
+    },
+    {
+      id: 5,
+      image: "https://storage.googleapis.com/a1aa/image/64SVZQUSbRtB4cs5D7oeKDCD8jZU75G6PLsNreYc0jA.jpg",
+      name: "Wireless Earbuds",
+      description: "Noise Cancelling",
+      price: 9999
+    }
+  ];
+
+  let currentProduct = 0;
+  let isScrolling = false;
+
+  function preloadImage(src) {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => resolve(src);
+    });
+  }
+
+  async function renderProduct(index) {
+    const product = products[index];
+    const img = document.getElementById("product-img");
+    const title = document.getElementById("product-title");
+    const description = document.getElementById("product-description");
+    const price = document.getElementById("product-price");
+
+    img.classList.remove("magic-in");
+    img.classList.add("magic-out");
+    isScrolling = true;
+
+    await preloadImage(product.image);
+
+    setTimeout(() => {
+      img.src = product.image;
+      title.innerText = product.name;
+      description.innerText = product.description;
+      price.innerText = "₹" + product.price;
+
+      img.classList.remove("magic-out");
+      img.classList.add("magic-in");
+      setTimeout(() => isScrolling = false, 700);
+    }, 500);
+  }
+
+  renderProduct(currentProduct);
+
+  window.addEventListener("wheel", (e) => {
+    if (isScrolling) return;
+    if (e.deltaY > 0) {
+      currentProduct = (currentProduct + 1) % products.length;
+    } else {
+      currentProduct = (currentProduct - 1 + products.length) % products.length;
+    }
+    renderProduct(currentProduct);
+  });
+</script>
+
+</body>
+</html>
