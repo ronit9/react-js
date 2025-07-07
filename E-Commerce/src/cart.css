@@ -3,152 +3,207 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --primary-orange: #ff6f00;
-  --hover-orange: #00bcd4;
-  --text-dark: #f3f3f3;
-  --bg-dark: #121212;
-  --card-bg: #1f1f1f;
-  --card-hover: #292929;
+  --hover-orange: #e65c00;
+  --secondary-yellow: #eea302;
+  --white: #ffffff;
+  --black: #000000;
+  --text-dark: #333;
 }
 
 body {
-    margin-top: 80px;
   font-family: "Segoe UI", sans-serif;
-  background: var(--bg-dark);
+  background: #f9f9f9;
   color: var(--text-dark);
-  line-height: 1.5;
+  padding: 40px 20px;
 }
-
-.cart-section {
-  padding: 60px 20px;
+.cart-section{
+  margin-top: 60px;
 }
-
-.cart-section h2 {
-  font-size: 42px;
-  text-align: center;
+h2 {
+  font-size: 36px;
   color: var(--primary-orange);
-  margin-bottom: 40px;
-  font-weight: 700;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  position: relative;
+  border-bottom: 3px solid var(--hover-orange);
+  display: inline-block;
+  padding-bottom: 5px;
+
 }
 
-.cart-section h2::after {
-  content: "";
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: var(--hover-orange);
-  border-radius: 10px;
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* Row headers */
 .product-row-header,
 .product-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2.5fr 1.5fr 1fr 1fr 0.7fr;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   padding: 16px 20px;
 }
 
 .product-row-header {
-  color: var(--hover-orange);
+  font-weight: 700;
   font-size: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-bottom: 1px solid #333;
+  background: #f1f1f1;
+  color: var(--hover-orange);
+  border-bottom: 2px solid #ccc;
 }
 
 .product-row {
-  background-color: var(--card-bg);
-  border-radius: 10px;
-  margin-bottom: 20px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
 }
-
-
-/* Product image and info */
+.delet-out{
+   animation: fade-out 1s ease-out both;
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .product-info {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .item-image {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 2px solid var(--hover-orange);
 }
 
 .item-info h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
 }
 
-/* Quantity button styling */
 .qty-btn {
   background-color: var(--primary-orange);
-  color: #fff;
+  color: white;
   border: none;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
   border-radius: 6px;
-  font-size: 20px;
-  width: 34px;
-  height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
+  cursor: pointer;
 }
 
 .qty-btn:hover {
   background-color: var(--hover-orange);
 }
 
-.qty-value {
-  font-size: 18px;
-  width: 32px;
+.qty {
+  font-size: 16px;
+  width: 30px;
   text-align: center;
-  font-weight: 500;
+  display: inline-block;
+  color: var(--primary-orange);
 }
 
-/* Price columns */
 .item-price,
 .item-total {
-  font-size: 18px;
   font-weight: 600;
-  color: var(--primary-orange);
+  font-size: 16px;
+  text-align: center;
+}
+.all-total{
+  color: var(--hover-orange);
+}
+/* From Uiverse.io by aaronross1 */ 
+.delete-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
 }
 
-/* Checkout Section */
-.text-end p {
-  color: var(--primary-orange);
-  font-size: 22px;
-  margin-bottom: 20px;
+.delete-svgIcon {
+  width: 15px;
+  transition-duration: 0.3s;
+}
+
+.delete-svgIcon path {
+  fill: white;
+}
+
+.delete-button:hover {
+  width: 90px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+}
+
+.delete-button:hover .delete-svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.delete-button::before {
+  display: none;
+  content: "Delete";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.delete-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+.text-end {
+  text-align: end;
+  margin-top: 20px;
 }
 
 .checkout-btn {
   background-color: var(--primary-orange);
   color: white;
-  padding: 12px 30px;
+  padding: 10px 24px;
   border: none;
-  border-radius: 50px;
+  border-radius: 30px;
   font-size: 16px;
-  cursor: pointer;
   font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .checkout-btn:hover {
   background-color: var(--hover-orange);
-  transform: translateY(-3px);
 }

@@ -17,9 +17,11 @@ a {
 }
 body {
   background-color: var(--black);
-  color: #ffffff;
+  color: var(--black);
 }
-
+img {
+  width: 100%;
+}
 .registration {
   background-image: url("../src/img/10607573.jpg");
   background-size: 100%;
@@ -698,11 +700,15 @@ body {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  /* border: 1px solid coral; */
+
   border-radius: 1rem;
   padding: 25px;
 }
-
+.flip-card-front img {
+  width: 100%;
+  object-position: top;
+  overflow: auto;
+}
 .flip-card-back {
   background: linear-gradient(
     120deg,
@@ -822,7 +828,7 @@ body {
 /* sliding banner  */
 #product-banner {
   display: flex;
-
+  height: 100vh;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
@@ -849,16 +855,14 @@ body {
 }
 
 #product-image img {
-  width: 100%;
-  max-width: 600px;
+  width: 80%;
   height: auto;
   border-radius: 30px;
-
   transition: transform 1.2s ease, opacity 0.6s ease;
   position: relative;
   object-fit: cover;
 }
-
+ 
 #product-details {
   flex-direction: column;
   align-items: flex-start;
@@ -944,8 +948,8 @@ body {
 
 .footer-container {
   display: flex;
- justify-content: space-between;
-align-items: center;
+  justify-content: space-between;
+  align-items: center;
 
   margin: 0 auto;
 }
@@ -1017,7 +1021,6 @@ align-items: center;
 }
 
 .map-container {
-
   text-align: center;
 }
 
