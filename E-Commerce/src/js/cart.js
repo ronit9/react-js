@@ -38,10 +38,7 @@ const decreaseQty = (id) => {
                 val.qty = cnt
                 let total = val.qty * val.price
                 val.finalTotal = total
-            }
-
-
-
+            } 
         }
     })
     localStorage.setItem("cart", JSON.stringify(cart))
@@ -67,11 +64,7 @@ const alltotal = () => {
         sum += val.finalTotal
 
     })
-    document.getElementById("total").innerHTML = `Final Total:- &nbsp₹` + sum
-
-
-
-
+    document.getElementById("total").innerHTML = `Final Total:- &nbsp₹` + sum 
 }
 alltotal()
 const showcartproduct = () => {

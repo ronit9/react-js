@@ -411,7 +411,7 @@ img {
     var(--primary-orange),
     var(--secondary-yellow)
   );
-  -webkit-background-clip: text;
+ 
   -webkit-text-fill-color: transparent;
   position: relative;
   animation: swipeReveal 2s ease-out forwards;

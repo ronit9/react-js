@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-orange: #ff6f00;
+  --hover-orange: #e65c00;
+  --secondary-yellow: #eea302;
+  --white: #ffffff;
+  --black: #000000;
+  --text-dark: #333;
+}
+body {
+  color: #e65c00;
+}
+.rec {
+  margin-top: 70px;
+}
+.rec h1 {
+  color: #eea302;
+}
+
+.rec form label {
+  font-size: 18px;
+  font-weight: 500;
+}
+.rec form select {
+  background-color: transparent;
+  color: var(--white);
+}
+.rec form select option {
+  background-color: black;
+  color: var(--hover-orange);
+  font-size: 15px;
+  font-weight: 600;
+}
+.rec form input {
+  background-color: transparent;
+  border: 1px solid var(--white);
+  color: var(--white);
+}
+.rec form .form-control:focus {
+  color: var(--white);
+  background-color: transparent;
+  border: 2px solid var(--white);
+}
+/* Align payment select properly */
+.col-12 select {
+  width: 50%; /* Match col-6 width */
+  margin-bottom: 10px;
+}
+
+/* Align checkbox with proper margin */
+.col-12 label input[type="checkbox"] {
+  margin-right: 5px;
+}
+ 
+.text {
+  position: relative;
+  z-index: 1;
+}
+ 
