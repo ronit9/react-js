@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+    --white: #ffffff;
+  --dark: #29323d;
+  --blue: #11aafa;
+  --light-blue: #e3f7ff;
+  --hover-blue: #0d8ecf;
+  --border-light: #c7d0d9;
+
+  --font-primary: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-22: 22px;
+  --fs-28: 28px;
+  --fs-36: 36px;
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+a{
+  text-decoration: none;
+}
+.reg {
+  width: 100%;
+  height: 100vh;
+  background-image: url(/public/img/10607573.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+.reg .form-floating > .form-control {
+  background: transparent;
+  border: 2px solid #f99e12;
+}
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: none !important;
+  
+  outline: none !important;
+  box-shadow: none !important;
+}

@@ -3,7 +3,7 @@ import "./banner.css";
 import { Image } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
-import Cart from "../allbuttons/button/Cart";
+ 
 import Signin from "../allbuttons/button/Signin";
 import Checkbox from "../allbuttons/like/Checkbox";
 import { FaAngleDoubleRight } from "react-icons/fa";
@@ -11,6 +11,7 @@ import { useRef } from "react";
 import { useState } from "react";
 import { ADD_TO_CART } from "../../redux/action/AuthAction";
 import { useDispatch } from "react-redux";
+import Cartbtn from "../allbuttons/button/Cartbtn";
 const Banner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const dispatch = useDispatch();
@@ -406,9 +407,12 @@ const Banner = () => {
     <>
       <section
         className="banner p-5 d-flex align-items-center  "
-        style={{ backgroundColor: bannerproduct[activeIndex]?.bgcolor }}
+        style={{
+          backgroundColor: bannerproduct[activeIndex]?.bgcolor,
+          boxShadow: "0 20px 40px rgba(228, 22, 22, 0.2) inset 0 -20px",
+        }}
       >
-        <Container>
+        <Container fluid>
           <Carousel
             activeIndex={activeIndex}
             onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
@@ -495,14 +499,13 @@ const Banner = () => {
                           </Card.Text>
 
                           <Col
-                            md={6}
+                            md={9}
                             className="d-flex align-items-center justify-content-between"
                             style={{ transform: "translateZ(15px)" }}
                           >
                             <button onClick={() => addtocart(val.id)}>
-                              <Cart />
+                              <Cartbtn />
                             </button>
-                            {/* <Cart    /> */}
                             <Checkbox />
                           </Col>
                         </Card.Body>

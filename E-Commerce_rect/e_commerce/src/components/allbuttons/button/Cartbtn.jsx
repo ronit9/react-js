@@ -1,6 +1,6 @@
 import React from "react";
 import "./cart.css";
-const Cart = () => {
+const Cartbtn = () => {
   return (
     <>
       <button id="addToCart" className="cartBtn  ">
@@ -27,4 +27,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Cartbtn;

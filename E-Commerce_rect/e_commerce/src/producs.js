@@ -1,8 +1,8 @@
-const product = [
+export const product = [
     {
         id: 1,
         title: "Essence Mascara Lash Princess",
-        image: "src/img/eye-liner.jpeg",
+        image: "../../public/img/eye-liner.jpeg",
         details: "This mascara delivers dramatic volume and sculpted lashes without clumps. Ideal for all-day wear with a smudge-proof formula.",
         price: 256,
         reviews: [
@@ -18,7 +18,7 @@ const product = [
     {
         id: 2,
         title: "Maybelline Fit Me Foundation",
-        image: "src/img/fit-face.jpeg",
+        image: "../../public/img/fit-face.jpeg",
         details: "A lightweight foundation with matte finish that fits skin tone and texture. Ideal for normal to oily skin and provides buildable coverage.",
         price: 126,
         reviews: [
@@ -44,7 +44,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 16.47,
-        category: "personal care",
+        category: "personalcare",
         gender: "male"
     },
     {
@@ -76,7 +76,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 12.50,
-        category: "personal care",
+        category: "personalcare",
         gender: "unisex"
     },
     {
@@ -98,7 +98,7 @@ const product = [
     {
         id: 7,
         title: "Beardo Beard Oil",
-        image: "src/img/beardo-oil.jpeg",
+        image: "../../public/img/beardo-oil.jpeg",
         details: "Specially formulated to promote beard growth, moisturize skin beneath, and leave a healthy, soft beard with a great fragrance.",
         price: 600,
         reviews: [
@@ -140,7 +140,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 11.97,
-        category: "personal care",
+        category: "personalcare",
         gender: "unisex"
     },
     {
@@ -195,7 +195,7 @@ const product = [
     {
         id: 13,
         title: "Nike Sports Shoes",
-        image: "SRC/img/nike-shoose.jpeg",
+        image: "../../public/img/nike-shoose.jpeg",
         details: "Durable and breathable running shoes with cushioned sole, ideal for sports and everyday wear.",
         price: 2999,
         reviews: [
@@ -211,7 +211,7 @@ const product = [
     {
         id: 14,
         title: "Boat Rockerz 255 Pro+",
-        image: "src/img/earband.jpeg",
+        image: "../../public/img/earband.jpeg",
         details: "Bluetooth wireless neckband with deep bass, fast charging, and 40-hour battery life.",
         price: 1299,
         reviews: [
@@ -324,7 +324,7 @@ const product = [
     {
         id: 21,
         title: "Asus VivoBook 15",
-        image: "src/img/asus-laptop.jpeg",
+        image: "../../public/img/asus-laptop.jpeg",
         details: "Sleek 15.6-inch laptop with Ryzen 5 processor, 8GB RAM, and 512GB SSD. Ideal for students and professionals.",
         price: 45990,
         reviews: [
@@ -359,7 +359,7 @@ const product = [
     {
         id: 23,
         title: "JBL Flip 5 Speaker",
-        image: "src/img/jbl.jpeg",
+        image: "../../public/img/jbl.jpeg",
         details: "Portable waterproof Bluetooth speaker with powerful bass and up to 12 hours of playtime.",
         price: 8499,
         reviews: [
@@ -375,7 +375,7 @@ const product = [
     {
         id: 24,
         title: "RayBan Aviator Sunglasses",
-        image: "src/img/rayben.jpeg",
+        image: "../../public/img/rayben.jpeg",
         details: "Classic metal-frame aviator sunglasses with UV protection, stylish and comfortable for everyday use.",
         price: 6290,
         reviews: [
@@ -449,7 +449,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 1299,
-        category: "personal care",
+        category: "personalcare",
         gender: "male"
     },
     {
@@ -787,7 +787,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 899,
-        category: "personal care",
+        category: "personalcare",
         gender: "female"
     },
     {
@@ -852,7 +852,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 249,
-        category: "personal care",
+        category: "personalcare",
         gender: "male"
     },
     {
@@ -948,7 +948,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 315,
-        category: "personal care",
+        category: "personalcare",
         gender: "female"
     },
     {
@@ -1061,7 +1061,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 559,
-        category: "personal care",
+        category: "personalcare",
         gender: "female"
     },
     {
@@ -1206,7 +1206,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 499,
-        category: "personal care",
+        category: "personalcare",
         gender: "female"
     },
     {
@@ -1254,7 +1254,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 180,
-        category: "personal care",
+        category: "personalcare",
         gender: "male"
     },
     {
@@ -1286,7 +1286,7 @@ const product = [
         ],
         qty: 1,
         finalTotal: 1149,
-        category: "personal care",
+        category: "personalcare",
         gender: "male"
     },
     {
@@ -1404,7 +1404,7 @@ const product = [
     {
         id: 88,
         title: "NIVIA Basketball",
-        image: "hhttps://www.niviasports.com/cdn/shop/files/2_3069f9c3-b008-48dc-ae72-58c4d9c6b662.jpg?v=1718881909",
+        image: "https://www.niviasports.com/cdn/shop/files/2_3069f9c3-b008-48dc-ae72-58c4d9c6b662.jpg?v=1718881909",
         details: "Official size and weight basketball suitable for indoor and outdoor courts.",
         price: 699,
         reviews: [
@@ -1770,3 +1770,4 @@ const product = [
         gender: "unisex"
     }
 ]
+localStorage.setItem("products", JSON.stringify(product));

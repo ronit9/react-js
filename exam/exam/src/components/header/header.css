@@ -35,7 +35,9 @@ img {
   background-color: var(--dark);
   
 }
-
+a{
+  text-decoration: none;
+}
 .nav .dropdown-item {
   color: var(--blue);
 }

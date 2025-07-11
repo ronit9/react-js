@@ -28,13 +28,14 @@ const LOGIN_USER = (loginuser) => {
         try {
             const data = await fetch(`http://localhost:3000/users?email=${loginuser.email}&password=${loginuser.password}`)
             const res = await data.json()
-            localStorage.setItem("userlogin", JSON.stringify(res))
+            console.log(res);
+
             if (res.length === 0) {
                 alert("user not found")
             }
             dispatch({
                 type: "LOG_USER",
-
+                payload: res
             })
         } catch (err) {
             console.log(err);
@@ -44,7 +45,6 @@ const LOGIN_USER = (loginuser) => {
 }
 
 const USER_LOGOUT = (username) => {
-
     return {
         type: "USER_LOGOUT",
         payload: username
@@ -57,4 +57,16 @@ const ADD_TO_CART = (id) => {
         payload: id
     }
 }
-export { REGISTER_USER, LOGIN_USER, ADD_TO_CART, USER_LOGOUT }
+const DELET_ITEM = (id) => {
+    return {
+        type: "DELET_ITEM",
+        payload: id
+    }
+}
+const QTY_MANAGE=(id,type)=>{ 
+    return{
+        type:"QTY_MANAGE",
+        payload:{id,type}
+    }
+}
+export { REGISTER_USER, LOGIN_USER, ADD_TO_CART, USER_LOGOUT, DELET_ITEM, QTY_MANAGE };

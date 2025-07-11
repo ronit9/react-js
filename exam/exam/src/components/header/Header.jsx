@@ -7,17 +7,19 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Image from "react-bootstrap/Image";
 import { Col } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router";
-import Banner from "../banner/Banner";
+ 
 import { useDispatch, useSelector } from "react-redux";
+import Banner from "../banner/Banner";
 import { USER_LOGOUT } from "../../redux/action/AuthAction";
-import Filterproduct from "../Filterproduct/Filterproduct";
+
 const Header = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginuser = useSelector((state) => state?.alldata?.Login);
+console.log(loginuser);
 
-  const username = loginuser?.map((item) => item.name);
+  const useremail = loginuser?.map((item) => item.email);
 
   useEffect(() => {
     if (!loginuser) {
@@ -36,8 +38,8 @@ const Header = () => {
             <Col lg={1}>
               <Navbar.Brand className="d-flex justify-content-center m-0 p-0">
                 <Image
-                  className="img "
-                  src="../../public/img/file_000000004cf861fdadd881970e0079ee.png"
+                  className=""
+                  src="https://w1.pngwing.com/pngs/913/269/png-transparent-movie-logo-graphic-film-cinema-movie-projector-outdoor-cinema-movie-camera-projection-screens-home-movies-thumbnail.png"
                   rounded
                 />
               </Navbar.Brand>
@@ -56,19 +58,18 @@ const Header = () => {
                   <Nav.Link>Products</Nav.Link>
                   <Nav.Link>shop</Nav.Link>
                   <Nav.Link>contact</Nav.Link>
-                  <Link to="/cart">
-                    <Nav.Item className="nav-link"> cart</Nav.Item>
-                  </Link>
+
+                  <Nav.Item className="nav-link"> cart</Nav.Item>
+
                   <NavDropdown
                     title={<Image src="https://i.pravatar.cc/300" />}
                     id="basic-nav-dropdown"
                     className="drop"
                   >
-                    <NavDropdown.Item>Hay {username}</NavDropdown.Item>
-                    <NavDropdown.Item
-                      onClick={() => dispatch(USER_LOGOUT(username))}
-                    >
-                      {username ? "logout" : "login"}
+                    <NavDropdown.Item>{useremail} </NavDropdown.Item>
+
+                    <NavDropdown.Item onClick={() => dispatch(USER_LOGOUT(useremail))}>
+                      {useremail ? "logout" : "login"}
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
@@ -80,7 +81,6 @@ const Header = () => {
       {location.pathname === "/header" && (
         <>
           <Banner />
-          <Filterproduct />
         </>
       )}
     </>
