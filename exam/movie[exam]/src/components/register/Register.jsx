@@ -43,12 +43,7 @@ const Register = () => {
         alert("enter valid pass");
       } else {
         alert("all done");
-        let obj = {
-          id: Math.floor(Math.random() * 1000),
-          ...formdata,
-        };
-      
-        dispach(REGISTER_USER(obj));
+        dispach(REGISTER_USER(formdata));
         navigate("/login");
       }
     } else {
@@ -61,14 +56,14 @@ const Register = () => {
       });
     }
   };
-  // const loginuser = useSelector((state) => state?.alldata?.Login);
-  // console.log(loginuser);
+  const loginuser = useSelector((state) => state?.alldata?.Login);
+  console.log(loginuser);
 
-  // useEffect(() => {
-  //   if (loginuser) {
-  //     navigate("/header");
-  //   }
-  // }, [loginuser]);
+  useEffect(() => {
+    if (loginuser) {
+      navigate("/header");
+    }
+  }, [loginuser]);
   return (
     <section className="reg p-5">
       <Container

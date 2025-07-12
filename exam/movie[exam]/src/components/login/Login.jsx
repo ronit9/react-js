@@ -34,20 +34,14 @@ const Login = () => {
     } else if (!passpattern.test(formdata.password)) {
       alert("enter valid pass");
     } else {
-      let obj = {
-        id: Math.floor(Math.random() * 1000),
-        ...formdata,
-      };
-
-      dispach(LOGIN_USER(obj));
-      // navigate("/header");
+      dispach(LOGIN_USER(formdata));
     }
   };
   const loginuser = useSelector((state) => state?.alldata?.Login);
   console.log(loginuser);
 
   useEffect(() => {
-    if (loginuser) {
+    if (loginuser  ) {
       navigate("/header");
     }
   }, [loginuser]);
